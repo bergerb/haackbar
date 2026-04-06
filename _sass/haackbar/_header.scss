@@ -99,13 +99,14 @@
   &:visited {
     color: $background-color;
   }
+}
 
-  &:hover {
-    // Override .header a:hover brand-color which fails WCAG contrast on the
-    // dark header background. Keep near-white for sufficient contrast ratio.
-    color: $background-color;
-    text-decoration: underline;
-  }
+// Specificity must beat .header a:hover (0,2,1) — use (0,3,0) via .header .site-title:hover.
+// Keeps near-white on the dark header background for WCAG contrast compliance.
+.header .site-title:hover {
+  color: $background-color;
+  text-decoration: underline;
+  transition: none; // Prevent base a:hover transition from overriding this
 }
 
 .site-subtitle {
