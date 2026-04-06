@@ -99,6 +99,13 @@
   &:visited {
     color: $background-color;
   }
+
+  &:hover {
+    // Override .header a:hover brand-color which fails WCAG contrast on the
+    // dark header background. Keep near-white for sufficient contrast ratio.
+    color: $background-color;
+    text-decoration: underline;
+  }
 }
 
 .site-subtitle {
